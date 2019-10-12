@@ -1254,6 +1254,11 @@ self: super: {
   # https://github.com/bitnomial/prometheus/issues/34
   prometheus = doJailbreak super.prometheus;
 
+  # ekg-prometheus-adapter was broken because it relied on prometheus
+  # which was broken, but now isn't. Hence temporarily overwrite
+  # broken attribute.
+  ekg-prometheus-adapter = overrideCabal super.ekg-prometheus-adapter (drv: { broken = false; });
+
   # Tasty-tap tests are out-of-date with TAP format
   # https://github.com/MichaelXavier/tasty-tap/issues/2
   tasty-tap = appendPatch super.tasty-tap (pkgs.fetchpatch {

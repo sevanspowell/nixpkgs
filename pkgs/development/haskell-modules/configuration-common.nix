@@ -1266,4 +1266,10 @@ self: super: {
     sha256 = "0l8zbc56dy8ilxl3k49aiknmfhgpcg3jhs72lh3dk51d0a09d9sv";
   });
 
+  polysemy = self.polysemy_1_2_1_0;
+
+  polysemy-plugin = addBuildDepend (overrideCabal super.polysemy-plugin (drv: {
+    broken = false;
+  })) self.cabal-install;
+
 } // import ./configuration-tensorflow.nix {inherit pkgs haskellLib;} self super

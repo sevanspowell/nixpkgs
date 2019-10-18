@@ -1259,6 +1259,12 @@ self: super: {
   # https://github.com/bitnomial/prometheus/issues/34
   prometheus = doJailbreak super.prometheus;
 
+  polysemy = self.polysemy_1_2_1_0;
+
+  polysemy-plugin = dontCheck (overrideCabal super.polysemy-plugin (drv: {
+    broken = false;
+  }));
+
   # Tasty-tap tests are out-of-date with TAP format
   # https://github.com/MichaelXavier/tasty-tap/issues/2
   tasty-tap = appendPatch super.tasty-tap (pkgs.fetchpatch {

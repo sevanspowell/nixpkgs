@@ -1485,4 +1485,8 @@ self: super: {
     sha256 = "097wqn8hxsr50b9mhndg5pjim5jma2ym4ylpibakmmb5m98n17zp";
   });
 
+  tasty-tap = unmarkBroken super.tasty-tap;
+  ekg-core = unmarkBroken super.ekg-core;
+  ekg-prometheus-adapter = unmarkBroken super.ekg-prometheus-adapter;
+
 } // import ./configuration-tensorflow.nix {inherit pkgs haskellLib;} self super

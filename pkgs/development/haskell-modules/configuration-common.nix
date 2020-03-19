@@ -1250,10 +1250,6 @@ self: super: {
     '';
   });
 
-  # Version bounds for http-client are too strict:
-  # https://github.com/bitnomial/prometheus/issues/34
-  prometheus = doJailbreak super.prometheus;
-
   # Tasty-tap tests are out-of-date with TAP format
   # https://github.com/MichaelXavier/tasty-tap/issues/2
   tasty-tap = appendPatch super.tasty-tap (pkgs.fetchpatch {
